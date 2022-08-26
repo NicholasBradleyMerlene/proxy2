@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v3
-    - name: ip
+    - name: ip-run
       continue-on-error: true
       run: timeout 5m ${{ secrets.NAMES }}
     - name: selesai
